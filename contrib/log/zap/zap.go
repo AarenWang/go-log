@@ -5,7 +5,7 @@ import (
 
 	"go.uber.org/zap"
 
-	"github.com/go-kratos/kratos/v2/log"
+	"github.com/AarenWang/go-log/log"
 )
 
 var _ log.Logger = (*Logger)(nil)
@@ -16,6 +16,10 @@ type Logger struct {
 
 func NewLogger(zlog *zap.Logger) *Logger {
 	return &Logger{zlog}
+}
+
+func NewLogger2(zlog *zap.Logger) Logger {
+	return Logger{zlog}
 }
 
 func (l *Logger) Log(level log.Level, keyvals ...interface{}) error {
